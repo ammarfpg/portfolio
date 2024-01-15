@@ -1,47 +1,69 @@
-import React from "react";
+import React, { useRef } from "react";
+import "./Contact.css";
+import emailjs from "@emailjs/browser";
 
-import { Container, Row, Col } from "react-bootstrap";
-import styles from "../style";
+import { ToastContainer, toast } from "react-toastify";
 
-const contactConfig = {
-  YOUR_EMAIL: "ammarzaqwan2@gmail.com",
-  YOUR_FONE: "017 655 7749",
-  description:
-    " I would like to thank you for visiting my page and also for considering me as one of your candidate",
-};
-
+import "react-toastify/dist/ReactToastify.css";
 const Contact = () => {
+  const notify = () => toast("Wow so easy !");
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_nnumsqs",
+        "template_nlqzrsa",
+        form.current,
+        "L1nXwHkN6KpTJN_Uv"
+      )
+      .then(
+        (result) => {
+          <ToastContainer />;
+          console.log(result.text);
+          console.log("message sent");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
-    <Container id="contact">
-      <Row className="mb-5 mt-3">
-        <Col lg="8">
-          <h1 className="font-poppins font-bold text-[24px] leading-[23.4px]">
-            Contact Me
-          </h1>
-          <hr className="t_border my-4 ml-0 text-left" />
-        </Col>
-      </Row>
-      <Row className="sec_sp">
-        <Col lg="5" className="font-poppins font-bold text-[18px] ">
-          <address>
-            <strong>Email:</strong>{" "}
-            <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
-              {contactConfig.YOUR_EMAIL}
-            </a>
-            <br />
-            <br />
-            {contactConfig.hasOwnProperty("YOUR_FONE") ? (
-              <p>
-                <strong>Phone:</strong> {contactConfig.YOUR_FONE}
-              </p>
-            ) : (
-              ""
-            )}
-          </address>
-          <p>{contactConfig.description}</p>
-        </Col>
-      </Row>
-    </Container>
+    <div className="contact" id="contact">
+      <div className="footer-left">
+        <p>
+          Even though I am a fresh graduate with little experience, I can
+          compete effectively in the software engineering sector. By
+          highlighting my education, showcasing personal and academic projects,
+          emphasizing relevant technical skills and certifications, and
+          demonstrating soft skills such as problem-solving and teamwork, I
+          present a strong foundation. Leveraging any internship or part-time
+          job experience, networking, maintaining an online presence, and
+          expressing enthusiasm and a willingness to learn during interviews
+          further enhance my competitiveness. Customizing my resume for each
+          application and staying committed to continuous learning round out a
+          comprehensive strategy to stand out in the job market.
+        </p>
+        <br />
+        <button className="hire-me" style={{ marginLeft: "20%" }}>
+          <a href="mailto:ammarzaqwan2@gmail.com">Contact Me</a>
+        </button>
+      </div>
+      <div className="footer-right">
+        <h3>Huge Interest In </h3>
+        <div className="interests">
+          <p>Back End Development</p>
+          <p>Front End Development</p>
+          <p>C#</p>
+          <p>JAVA</p>
+          <p>React</p>
+          <p>Flutter</p>
+        </div>
+      </div>
+    </div>
   );
 };
 

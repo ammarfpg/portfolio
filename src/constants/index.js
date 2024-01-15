@@ -41,6 +41,7 @@ export const features = [
     Implemented change requests for both Creditor and Debtor sides.
     Actively participated in the RENTAS MX Migration and conducted testing for Kuwait Finance House Bank.
   `,
+    associated: ["Java", "JSP", "OpenESB", "API Testing", "Quality Assurance"],
   },
   {
     id: "feature-2",
@@ -59,6 +60,7 @@ export const features = [
       - Implemented front-end changes, including new UI elements and features.
       - Intermediate in React concepts and Tailwind CSS.
   `,
+    associated: ["Go", "ReactJS", "PostGreSQL", "MySQL"],
   },
 ];
 export const projects = [
@@ -94,6 +96,7 @@ export const feedback = [
     title: "FACE Children Management System",
     img: people01,
     urllink: "https://github.com/ammarzaqwan/FACE",
+    skill: ["PHP", "Flutter", "SQL", "HTML", "CSS"],
   },
   {
     id: 2,
@@ -103,6 +106,7 @@ export const feedback = [
     title: "Inventory Management System",
     img: people02,
     urllink: "https://github.com/ammarzaqwan/ftrsb_mobile",
+    skill: ["Flutter", "Firebase"],
   },
   {
     id: 3,
@@ -112,6 +116,7 @@ export const feedback = [
     title: "Geo Location Express Api ",
     img: people03,
     urllink: "https://github.com/ammarzaqwan/GeoExpressApi",
+    skill: ["ExpressJS", "API", "HTML Templating"],
   },
 ];
 

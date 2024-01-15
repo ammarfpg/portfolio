@@ -2,7 +2,7 @@ import React from "react";
 import { features } from "../constants";
 import styles, { layout } from "../style";
 
-const FeatureCard = ({ icon, title, content, index }) => (
+const FeatureCard = ({ icon, title, content, index, associated }) => (
   <div
     className={`flex flex-row p-6 rounded-[20px] ${
       index !== features.length - 1 ? "mb-6" : "mb-0"
@@ -17,9 +17,20 @@ const FeatureCard = ({ icon, title, content, index }) => (
       <h4 className="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
         {title}
       </h4>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[24px]">
+      <p className="font-poppins font-normal text-dimWhite text-[17px] leading-[24px]">
         {content}
       </p>
+      <div className="flex flex-row mt-4">
+        <div className="flex flex-wrap">
+          {associated.map((individualSkill, index) => (
+            <div key={index} className="mr-2">
+              <div className="font-poppins font-semibold text-[16px]  leading-[32px] text-gradient">
+                {individualSkill}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 );
